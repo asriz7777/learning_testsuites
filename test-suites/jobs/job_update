@@ -1,0 +1,50 @@
+name: job_update
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  - create_org_abstract
+  - create_githubacc_abstract
+  - create_githubproj_abstract
+  - create_environment_abstract
+  - create_job_abstract
+
+endpoint: /jobs
+
+method: PUT
+
+auth: Default
+
+
+testCases:
+- id: 1
+  body: '{
+   "orgId": "{{@create_org_abstract_Response.data}}",
+   "accountId": "{{@create_githubacc_abstract_Response.data}}",
+   "projectId": "{{@create_githubproj_abstract_Response.data}}",
+   "envId": "{{@create_environment_abstract_Response.data}}",
+   "jobupdate": {
+    "jobId": "{{@create_job_abstract_Response.data}}",
+    "name": "{{@Random | 6}}",
+    "environment": "Uat",
+    "botRegion": "FXLabs/US_WEST_2",
+    "cron": "0 15 10 ? * *",
+  },
+}'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2
+
+policies:
+  logger: DEBUG

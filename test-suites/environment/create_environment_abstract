@@ -26,9 +26,9 @@ assertions:
   - "@Response.data.name == @Request.name"
   - "@Response.data.url == @Request.url"
 
-  severity: Major
+severity: Major
 
-  category: Functional
+category: Functional
 
 tags:
 - V2
