@@ -1,0 +1,32 @@
+name: create_job_abstract
+authors:
+  - Asiya Shaji
+
+type: ABSTRACT
+endpoint: /jobs
+method: POST
+auth: Default
+
+
+testCases:
+  - id: 1
+    body: '{
+        "name": "JB-{{@Random | 6}}",
+        "environment": "UAT",
+        "bot Region": "FXLabs/US_WEST_1",
+         "cron": " "",
+         "project": "{{@create_githubproj_abstract_Response.data}}"
+     }'
+
+  assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.environment == @Request.environment"
+
+
+tags:
+  - V2
+
+policies:
+  logger: DEBUG

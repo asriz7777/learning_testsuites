@@ -1,0 +1,33 @@
+name: create_org_abstract
+
+type: ABSTRACT
+
+endpoint: /orgs
+
+method: POST
+
+auth: Default
+
+testCases:
+  - id: 1
+    body: '{
+        "orgName": "ASIYA",
+        "billingEmail": "asiya@fxlabs.io",
+        "username": "Asiya",
+        "company": "fxlabs",
+        "orgType": "ENTERPRISE"
+    }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.billingEmail == @Request.billingEmail"
+  - "@Response.data.company == @Request.company"
+
+  severity: Major
+
+  category: Functional
+
+tags:
+- V2
