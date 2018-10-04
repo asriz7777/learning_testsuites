@@ -1,4 +1,4 @@
-name: job_findby_projectid
+name: job_findby_id
 
 authors:
   - Asiya Shaji
@@ -12,7 +12,8 @@ init:
   - create_environment_abstract
   - create_job_abstract
 
-endpoint:  /jobs/project-id/{{@create_githubproj_abstract_Response.data}}
+endpoint:  /jobs/{{@create_job_abstract_Response.data.id}}
+
 method: GET
 
 auth: Default

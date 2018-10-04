@@ -1,0 +1,24 @@
+name: delete_environment
+
+authors:
+  - Asiya
+
+type: ABSTRACT
+
+endpoint: /accounts/{{@create_environment_abstract_Response.data.id}}
+
+method: DELETE
+
+headers:
+- 'Content-Type: application/json'
+
+assertions:
+    - "@StatusCode == 200"
+    - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

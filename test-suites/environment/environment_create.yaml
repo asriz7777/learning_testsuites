@@ -1,0 +1,42 @@
+name: environment_create
+
+type: SUITE
+
+init:
+ - create_githubacc_abstract
+ - create_githubproj_abstract
+
+
+endpoint: /envs
+
+method: POST
+
+auth: Default
+
+testCases:
+   - id: 1
+    body: '{"auths":[{"authType": "Basic","name": "Default",
+    "password": "asiya@fxlabs.io","username": "ASIYA//asiya@fxlabs.io"}],
+    "projectId": "{{@create_githubproj_abstract_Response.data}}"}'
+
+
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.authType == @Request.authType"
+  - "@Response.data.username == @Request.username"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.url == @Request.url"
+  - "@Response.data.projecct.id == @Request.project.id"
+
+cleanup:
+  - delete_githubproj
+  - delete_githubacc
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
