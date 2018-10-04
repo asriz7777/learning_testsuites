@@ -17,15 +17,16 @@ method: POST
 auth: Default
 
 testCases:
-   - id: 1
+  - id: 1
     body: '{
         "name": "UAT",
-        "environment": "{{@create_environment_abstract_Response.data}}",
-        "project": "{{@create_githubproj_abstract_Response.data}}",
+        "projectId": "{{@create_githubproj_abstract_Response.data.id}}",
+        "environmentId": "{{@create_environment_abstract_Response.data.id}}",
         "regions": "US_WEST_2",
-        "categories": ""
+        "categories":""
 
      }'
+
 
 assertions:
   - "@StatusCode == 200"
