@@ -6,11 +6,10 @@ authors:
 type: SUITE
 
 init:
-  - create_org_abstract
-  - create_githubacc_abstract
-  - create_githubproj_abstract
-  - create_environment_abstract
-  - create_job_abstract
+   - create_githubacc_abstract
+   - create_githubproj_abstract
+   - create_environment_abstract
+   - create_job_abstract
 
 endpoint:  /jobs/project-id/{{@create_githubproj_abstract_Response.data.id}}
 
@@ -22,6 +21,12 @@ assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data != EMPTY"
+
+cleanup:
+  - delete_job
+  - delete_environment
+  - delete_githubproj
+  - delete_githubacc
 
 
 severity: Major

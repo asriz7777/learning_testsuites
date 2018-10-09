@@ -5,14 +5,9 @@ authors:
 
 type: SUITE
 
-init:
-  - create_org_abstract
-  - create_githubacc_abstract
-  - create_githubproj_abstract
-  - create_environment_abstract
-  - create_job_abstract
+#init:
 
-endpoint:  /jobs/{{@create_job_abstract_Response.data.id}}
+endpoint: /jobs/{{@create_job_abstract_Response.data.id}}
 
 method: GET
 

@@ -6,13 +6,12 @@ authors:
 type: SUITE
 
 init:
-  - create_org_abstract
-  - create_githubacc_abstract
-  - create_githubproj_abstract
-  - create_environment_abstract
-  - create_job_abstract
+   - create_githubacc_abstract
+   - create_githubproj_abstract
+   - create_environment_abstract
+   - create_job_abstract
 
-endpoint: /jobs
+endpoint: /jobs/{{@create_job_abstract_Response.data.id}}
 
 method: PUT
 
@@ -20,24 +19,30 @@ auth: Default
 
 
 testCases:
-- id: 1
-  body: '{
-   "orgId": "{{@create_org_abstract_Response.data}}",
-   "accountId": "{{@create_githubacc_abstract_Response.data}}",
-   "projectId": "{{@create_githubproj_abstract_Response.data}}",
-   "envId": "{{@create_environment_abstract_Response.data}}",
-   "jobupdate": {
-    "jobId": "{{@create_job_abstract_Response.data}}",
-    "name": "{{@Random | 6}}",
-    "environment": "Uat",
-    "botRegion": "FXLabs/US_WEST_2",
-    "cron": "0 15 10 ? * *",
-  },
-}'
+    - id: 1
+      body: '{
+        "jobId": "{{@create_job_abstract_Response.data.id}}",
+        "name": "UAT1",
+        "projectId": "{{@create_githubproj_abstract_Response.data.id}}",
+        "environmentId": "{{@create_environment_abstract_Response.data.id}}",
+        "regions": "US_WEST_2",
+        "categories":""
+
+     }'
 
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.job.id == @Request.job.id"
+  - "@Response.data.project.id == @Request.project.id"
+  - "@Response.data.environment.id == @Request.enviroment.id"
+
+cleanup:
+ - delete_job
+ - delete_environment
+ - delete_githubproj
+ - delete_githubacc
 
 severity: Major
 
