@@ -14,7 +14,7 @@ headers:
 
 testCases:
     - id: 1
-    body: '{
+      body: '{
         "name": "proj-{{@Random | 6}}",
         "url": "https://github.com/asriz7777/FX_Testing-Automation",
         "account": "{{@create_githubacc_abstract_Response.data}}"
