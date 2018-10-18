@@ -25,9 +25,9 @@ assertions:
   - "@Response.data.billingEmail == @Request.billingEmail"
   - "@Response.data.company == @Request.company"
 
-  severity: Major
+severity: Major
 
-  category: Functional
+category: Functional
 
 tags:
 - V2
