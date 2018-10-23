@@ -5,7 +5,10 @@ authors:
 
 type: SUITE
 
-#init:
+init:
+   - create_githubacc_abstract
+   - create_githubproj_abstract
+   - create_environment_abstract
 
 endpoint: /envs/{{@create_environment_abstract_Response.data.id}}
 
@@ -18,6 +21,10 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data != EMPTY"
 
+cleanup:
+    - delete_environment
+    - delete_githubproj
+    - delete_githubacc
 
 severity: Major
 
