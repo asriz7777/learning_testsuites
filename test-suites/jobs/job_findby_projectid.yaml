@@ -28,7 +28,6 @@ cleanup:
   - delete_githubproj
   - delete_githubacc
 
-
 severity: Major
 
 category: Functional
