@@ -22,10 +22,10 @@ assertions:
   - "@Response.data != EMPTY"
 
 cleanup:
- - create_environment_abstract
- - create_githubproj_abstract
- - create_githubacc_abstract
- 
+  - delete_environment
+  - delete_githubproj
+  - delete_githubacc
+
 severity: Major
 
 category: Functional
