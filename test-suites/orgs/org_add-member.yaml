@@ -1,0 +1,35 @@
+name: org_addmember
+
+type: SUITE
+
+endpoint: /orgs/{{@create_org_abstract_Response.data.id}}/users/add-member
+
+
+method: POST
+
+auth: Default
+
+testCases:
+  - id: 1
+    body:'{
+    "name": "haniya",
+    email": "haniya@fxlabs.io",
+    "orgId": "{{@create_org_abstract_Response.data.id}}",
+    "orgRole": "PROJECT_MANAGER",
+    "password": "haniya1234",
+    "confirmPassword": "haniya1234"
+
+  }'
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.email == @Request.email"
+  - "@Response.data.org.Id == @Request.org.Id"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

@@ -1,0 +1,23 @@
+name: user_findusers
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /users
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

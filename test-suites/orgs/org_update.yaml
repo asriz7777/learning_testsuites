@@ -1,0 +1,40 @@
+name: org_update
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+
+endpoint: /orgs/{{@create_org_abstract_Response.data.id}}
+
+method: PUT
+
+auth: Default
+
+testCases:
+      - id: 1
+        body:'{
+        "billingEmail": "fxl@fxlabs.io",
+        "company": "fxl",
+        "orgId": "{{@create_org_abstract_Response.data.id}}",
+        "name": "john1",
+        "orgPlan": "ENTERPRISE",
+        "orgType": "ENTERPRISE"
+    }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.org.id == @Request.org.id"
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2
+
+policies:
+  logger: DEBUG
