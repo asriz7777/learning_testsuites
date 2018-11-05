@@ -1,9 +1,11 @@
 name: org_addmember
 
+authors:
+  - Asiya Shaji
+
 type: SUITE
 
 endpoint: /orgs/{{@create_org_abstract_Response.data.id}}/users/add-member
-
 
 method: POST
 
@@ -11,9 +13,9 @@ auth: Default
 
 testCases:
   - id: 1
-    body:'{
+    body: '{
     "name": "haniya",
-    email": "haniya@fxlabs.io",
+    "email": "haniya@fxlabs.io",
     "orgId": "{{@create_org_abstract_Response.data.id}}",
     "orgRole": "PROJECT_MANAGER",
     "password": "haniya1234",
