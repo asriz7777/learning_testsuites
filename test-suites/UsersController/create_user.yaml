@@ -22,7 +22,7 @@ testCases:
     "password": "haniya1234"
 
   }'
-  
+
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"

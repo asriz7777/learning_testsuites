@@ -1,0 +1,34 @@
+name: create_org
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /orgs
+
+method: POST
+
+auth: Default
+
+testCases:
+   - id: 1
+     body: '{
+    "name": "john",
+    "company": "john",
+    "billingEmail": "john@fxlabs.io"
+  }'
+
+  assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.billingEmail == @Request.billingEmail"
+  - "@Response.data.company == @Request.company"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
