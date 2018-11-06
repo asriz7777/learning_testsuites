@@ -19,7 +19,7 @@ testCases:
      "val": "asiya@fxlabs.io"
 	 }'
 
-  assertions:
+assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.key == @Request.key"
