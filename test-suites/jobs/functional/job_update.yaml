@@ -25,7 +25,7 @@ testCases:
         "projectId": "{{@create_githubproj_abstract_Response.data.id}}",
         "environmentId": "{{@create_environment_abstract_Response.data.id}}",
         "regions": "US_WEST_2",
-        "categories":""
+        "categories": ""
       }'
 
 assertions:
