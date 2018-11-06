@@ -13,7 +13,7 @@ auth: Default
 
 testCases:
   - id: 1
-    body:'{
+    body: '{
     "confirmPassword": "haniya1234",
     "email": "haniya@fxlabs.io",
     "name": "haniya",

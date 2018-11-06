@@ -3,8 +3,11 @@ name: org_updateOrgUser
 authors:
   - Asiya Shaji
 
-type: SUITE
+init:
+   - create_org_abstract
+   - create_user_abstract
 
+type: SUITE
 
 endpoint: /orgs/{{@create_org_abstract_Response.data.id}}/users/{{@create_user_abstract_Response.data.id}}
 
@@ -14,13 +17,13 @@ auth: Default
 
 testCases:
       - id: 1
-        body:'{
-        "confirmPassword": "haniya1234",
-        "email": "haniya@fxlabs.io",
-        "name": "haniya",
+        body: '{
+        "confirmPassword": "abcd1234",
+        "email": "abcd@fxlabs.io",
+        "name": "abcd",
         "orgId": "{{@create_org_abstract_Response.data.id}}",
         "orgRole": "PROJECT_MANAGER",
-        "password": "haniya1234"
+        "password": "abc1234"
   }'
 
 assertions:

@@ -27,7 +27,7 @@ testCases:
         "regions": "US_WEST_2",
         "categories":""
       }'
-      
+
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"

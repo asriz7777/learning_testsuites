@@ -1,5 +1,8 @@
 name: org_loginStatus
 
+authors:
+  - Asiya Shaji
+
 type: SUITE
 
 endpoint: /orgs/login-status

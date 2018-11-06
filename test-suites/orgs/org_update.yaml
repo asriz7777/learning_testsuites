@@ -3,8 +3,10 @@ name: org_update
 authors:
   - Asiya Shaji
 
-type: SUITE
+init:
+   - create_org_abstract
 
+type: SUITE
 
 endpoint: /orgs/{{@create_org_abstract_Response.data.id}}
 
@@ -14,7 +16,7 @@ auth: Default
 
 testCases:
       - id: 1
-        body:'{
+        body: '{
         "billingEmail": "fxl@fxlabs.io",
         "company": "fxl",
         "orgId": "{{@create_org_abstract_Response.data.id}}",

@@ -5,6 +5,9 @@ authors:
 
 type: SUITE
 
+init:
+   - create_org_abstract
+
 endpoint: /orgs/{{@create_org_abstract_Response.data.id}}/users/add-member
 
 method: POST
