@@ -14,12 +14,12 @@ auth: Default
 testCases:
    - id: 1
      body: '{
-    "name": "john",
-    "company": "john",
-    "billingEmail": "john@fxlabs.io"
+     "name": "john",
+     "company": "john",
+     "billingEmail": "john@fxlabs.io"
   }'
 
-  assertions:
+assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
