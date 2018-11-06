@@ -14,7 +14,7 @@ auth: Default
 testCases:
    - id: 1
      body: '{
-     "org": "{{@create_org_abstract_Response.data.id}}",
+     "orgId": "{{@create_org_abstract_Response.data.id}}",
      "key": "ASIYA//asiya@fxlabs.io",
      "val": "asiya@fxlabs.io"
 	 }'

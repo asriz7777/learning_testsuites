@@ -6,6 +6,7 @@ authors:
 type: SUITE
 
 init:
+   - create_org_abstract
    - create_githubacc_abstract
 
 endpoint: /accounts/{{@create_githubacc_abstract_Response.data.id}}
@@ -19,6 +20,8 @@ testCases:
    - id: 1
      body:
       '{
+        "accountId": "{{@create_githubacc_abstract_Response.data.id}}",
+        "orgId": "{{@create_org_abstract_Response.data.id}}",
         "name": "{{@Random | 3}}",
         "accountType": "GitHub",
         "accessKey": "asriz7777",
@@ -32,6 +35,11 @@ assertions:
     - "@Response.data.accountType == @Request.accountType"
     - "@Response.data.accessKey == @Request.accessKey"
     - "@Response.data.secretKey == EMPTY"
+    - "@Response.data.account.id == @Request.account.id"
+    - "@Response.data.org.id == @Request.org.id"
+
+
+
 
 severity: Major
 

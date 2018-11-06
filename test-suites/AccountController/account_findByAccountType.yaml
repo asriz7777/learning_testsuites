@@ -8,7 +8,7 @@ type: SUITE
 #init:
    #- create_account_abstract
 
-endpoint: /accounts/account-type/{GitHub}
+endpoint: /accounts/account-type/GitHub
 
 method: GET
 

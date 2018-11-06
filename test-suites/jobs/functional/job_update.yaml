@@ -20,10 +20,10 @@ auth: Default
 testCases:
     - id: 1
       body: '{
-        "jobId": "{{@create_job_abstract_Response.data.id}}",
-        "name": "UAT1",
         "projectId": "{{@create_githubproj_abstract_Response.data.id}}",
         "environmentId": "{{@create_environment_abstract_Response.data.id}}",
+        "jobId": "{{@create_job_abstract_Response.data.id}}",
+        "name": "UAT1",
         "regions": "US_WEST_2",
         "categories": ""
       }'

@@ -17,12 +17,12 @@ auth: Default
 testCases:
    - id: 1
      body: '{
-     "org": "{{@create_org_abstract_Response.data.id}}",
+     "orgId": "{{@create_org_abstract_Response.data.id}}",
      "key": "ASIYA//asiya@fxlabs.io",
      "val": "asiya@fxlabs.io"
 	 }'
 
-  assertions:
+assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.key == @Request.key"
