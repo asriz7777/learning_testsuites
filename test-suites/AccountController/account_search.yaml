@@ -1,0 +1,23 @@
+name: account_search
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /accounts/search
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
