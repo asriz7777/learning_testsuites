@@ -1,0 +1,22 @@
+name: projects_findAll
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /projects
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

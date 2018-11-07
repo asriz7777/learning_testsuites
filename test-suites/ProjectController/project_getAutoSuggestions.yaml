@@ -1,0 +1,27 @@
+name: projects_getAutoSuggestions
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+ - create_githubacc_abstract
+ - create_githubproj_abstract
+
+endpoint: /projects/{{@create_githubproj_abstract_Response.data.id}}/auto-suggestions
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
