@@ -18,14 +18,14 @@ testCases:
     "orgRole": "PROJECT_MANAGER",
     "password": "abcd1234"
 
-  }'
+ }'
 
-  assertions:
+assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
   - "@Response.data.email == @Request.email"
-  - "@Response.data.org.Id" == @Request.org.Id"
+  - "@Response.data.org.id == @Request.org.id"
 
 severity: Major
 

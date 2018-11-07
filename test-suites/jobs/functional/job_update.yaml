@@ -11,8 +11,7 @@ init:
    - create_environment_abstract
    - create_job_abstract
 
-endpoint: /jobs/{{@create_job_abstract_Response.data.id}}
-
+endpoint: /jobs
 method: PUT
 
 auth: Default
