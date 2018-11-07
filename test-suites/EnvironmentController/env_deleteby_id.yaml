@@ -10,6 +10,7 @@ init:
    - create_githubproj_abstract
    - create_environment_abstract
    - create_job_abstract
+   - delete_job
 
 endpoint: /envs/{{@create_environment_abstract_Response.data.id}}
 
@@ -23,7 +24,6 @@ assertions:
   - "@Response.data != EMPTY"
 
 cleanup:
-  - delete_job
   - delete_environment
   - delete_githubproj
   - delete_githubacc
