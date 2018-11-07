@@ -14,17 +14,17 @@ auth: Default
 testCases:
    - id: 1
      body: '{
-     "name": "johny",
-     "company": "john",
-     "billingEmail": "john@fxlabs.io"
-  }'
+     "name": "fn1 ln",
+	   "company": "{{@RandomAlphanumeric | 9}}",
+  	 "email": "{{@RandomAlphanumeric | 5}}@fxlabs.io"
+	}'
 
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
-  - "@Response.data.name == @Request.name"
-  - "@Response.data.billingEmail == @Request.billingEmail"
-  - "@Response.data.company == @Request.company"
+#  - "@Response.data.name == @Request.name"
+#  - "@Response.data.billingEmail == @Request.billingEmail"
+#  - "@Response.data.company == @Request.company"
 
 severity: Major
 
