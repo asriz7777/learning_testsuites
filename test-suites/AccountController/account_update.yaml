@@ -6,8 +6,8 @@ authors:
 type: SUITE
 
 init:
-  # - create_org_abstract
-   - create_githubacc_abstract
+  - create_githubacc_abstract
+# - create_org_abstract
 
 endpoint: /accounts/{{@create_githubacc_abstract_Response.data.id}}
 
