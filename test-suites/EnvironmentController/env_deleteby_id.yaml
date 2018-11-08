@@ -7,14 +7,16 @@ type: SUITE
 
 init:
    - create_githubacc_abstract
-   - create_githubproj_abstract
+   - create_project_abstract
    - create_environment_abstract
-   - create_job_abstract
+   - job_findby_projectid_abstract
    - delete_job
+   #- create_job_abstract
+   #- delete_job
 
 endpoint: /envs/{{@create_environment_abstract_Response.data.id}}
 
-method: DELETE
+method: GET
 
 auth: Default
 
@@ -22,10 +24,10 @@ assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
 
-cleanup:
-  - delete_environment
-  - delete_githubproj
-  - delete_githubacc
+#cleanup:
+  #- delete_environment
+  #- delete_project
+  #- delete_githubacc
 
 severity: Major
 
