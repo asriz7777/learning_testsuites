@@ -1,14 +1,11 @@
-name: account_findByAccountType
+name: job_findby_projectid
 
 authors:
   - Asiya Shaji
 
-type: SUITE
+type: ABSTRACT
 
-#init:
-   #- create_account_abstract
-
-endpoint: /accounts/account-type/{GitHub}
+endpoint:  /jobs/project-id/{{@create_project_abstract_Response.data.id}}
 
 method: GET
 
