@@ -4,8 +4,7 @@ type: SUITE
 
 init:
  - create_githubacc_abstract
- - create_githubproj_abstract
-
+ - create_project_abstract
 
 endpoint: /envs
 
@@ -18,8 +17,7 @@ testCases:
       body: '{"auths":[{"authType": "Basic","name": "Default",
       "password": "asiya@fxlabs.io","username": "ASIYA//asiya@fxlabs.io"}],
       "name": "UAT","baseUrl": "http://13.56.210.25/api/v1",
-      "projectId": "{{@create_githubproj_abstract_Response.data.id}}"}'
-
+      "projectId": "{{@create_project_abstract_Response.data.id}}"}'
 
 assertions:
   - "@StatusCode == 200"
@@ -31,7 +29,7 @@ assertions:
   - "@Response.data.projecct.id == @Request.project.id"
 
 cleanup:
-  - delete_githubproj
+  - delete_project
   - delete_githubacc
 
 severity: Major
