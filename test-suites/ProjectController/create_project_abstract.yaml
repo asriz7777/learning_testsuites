@@ -1,4 +1,4 @@
-name: create_project
+name: create_project_abstract
 
 authors:
   - Asiya
@@ -17,7 +17,7 @@ testCases:
       body: '{
         "name": "proj-{{@Random | 6}}",
         "url": "https://github.com/asriz7777/FX_Testing-Automation",
-        "account": "{{@Ncreate_githubacc_abstract_Response.data}}"
+        "account": "{{@create_githubacc_abstract_Response.data}}"
       }'
 
 
