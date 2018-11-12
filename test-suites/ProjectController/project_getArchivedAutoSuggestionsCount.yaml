@@ -1,0 +1,32 @@
+name: projects_getArchivedAutoSuggestionsCount
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+ - create_githubacc_abstract
+ - create_project_abstract
+
+endpoint: /projects/{{@create_project_abstract_Response.data.id}}/count-archived-auto-suggestions
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+cleanup:
+    - delete_project
+    - delete_githubacc
+
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

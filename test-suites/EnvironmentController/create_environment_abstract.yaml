@@ -13,7 +13,7 @@ testCases:
       body: '{"auths":[{"authType": "Basic","name": "Default",
       "password": "asiya@fxlabs.io","username": "ASIYA//asiya@fxlabs.io"}],
       "name": "UAT","baseUrl": "http://13.56.210.25/api/v1",
-      "projectId": "{{@create_githubproj_abstract_Response.data.id}}"}'
+      "projectId": "{{@create_project_abstract_Response.data.id}}"}'
 
 
 assertions:

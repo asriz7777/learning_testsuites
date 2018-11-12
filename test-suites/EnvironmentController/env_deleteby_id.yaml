@@ -10,7 +10,6 @@ init:
    - create_project_abstract
    - create_environment_abstract
    - job_findby_projectid_abstract
-   - delete_job
    #- create_job_abstract
    #- delete_job
 

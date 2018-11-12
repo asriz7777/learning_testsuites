@@ -7,11 +7,11 @@ type: SUITE
 
 init:
    - create_githubacc_abstract
-   - create_githubproj_abstract
+   - create_project_abstract
    - create_environment_abstract
    - create_job_abstract
 
-endpoint:  /jobs/project-id/{{@create_githubproj_abstract_Response.data.id}}
+endpoint:  /jobs/project-id/{{@create_project_abstract_Response.data.id}}
 
 method: GET
 
@@ -25,7 +25,7 @@ assertions:
 cleanup:
   - delete_job
   - delete_environment
-  - delete_githubproj
+  - delete_project
   - delete_githubacc
 
 severity: Major

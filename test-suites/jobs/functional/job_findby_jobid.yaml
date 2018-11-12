@@ -7,7 +7,7 @@ type: SUITE
 
 init:
    - create_githubacc_abstract
-   - create_githubproj_abstract
+   - create_project_abstract
    - create_environment_abstract
    - create_job_abstract
 
@@ -25,7 +25,7 @@ assertions:
 cleanup:
     - delete_job
     - delete_environment
-    - delete_githubproj
+    - delete_project
     - delete_githubacc
 
 

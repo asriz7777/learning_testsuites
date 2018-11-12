@@ -6,7 +6,7 @@ authors:
 type: SUITE
 
 init:
- - create_githubacc_abstract
+    - create_githubacc_abstract
 
 endpoint: /projects
 
@@ -16,11 +16,11 @@ headers:
 - 'Content-Type: application/json'
 
 testCases:
-  - id: 1
-    body: '{
-        "name": "proj-{{@Random | 6}}proj-{{@Random | 6}}proj-{{@Random | 6}}proj-{{@Random | 6}}proj-{{@Random | 6}}",
+    - id: 1
+      body: '{
+        "name": "proj-{{@Random | 6}}",
         "url": "https://github.com/asriz7777/FX_Testing-Automation",
-        "account": "{{@create_githubacc_abstract_Response.data}}"
+        "account": "{{@Ncreate_githubacc_abstract_Response.data.id}}"
       }'
 
 

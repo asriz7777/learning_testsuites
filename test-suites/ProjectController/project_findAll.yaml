@@ -6,6 +6,7 @@ authors:
 type: SUITE
 
 endpoint: /projects
+
 method: GET
 
 auth: Default

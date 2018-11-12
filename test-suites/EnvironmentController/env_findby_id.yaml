@@ -7,7 +7,7 @@ type: SUITE
 
 init:
    - create_githubacc_abstract
-   - create_githubproj_abstract
+   - create_project_abstract
    - create_environment_abstract
 
 endpoint: /envs/{{@create_environment_abstract_Response.data.id}}
@@ -23,7 +23,7 @@ assertions:
 
 cleanup:
     - delete_environment
-    - delete_githubproj
+    - delete_project
     - delete_githubacc
 
 severity: Major
