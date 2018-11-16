@@ -1,0 +1,37 @@
+name: env_findby_projectid
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+   - create_githubacc_abstract
+   - create_project_abstract
+   - create_environment_abstract
+
+endpoint:  /envs/project-id/{{@create_project_abstract_Response.data.id}}
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data != EMPTY"
+
+cleanup:
+  - delete_project
+  - delete_githubacc
+
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2
+
+policies:
+    logger: DEBUG
