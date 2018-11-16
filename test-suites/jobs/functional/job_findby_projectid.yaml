@@ -9,7 +9,6 @@ init:
    - create_githubacc_abstract
    - create_project_abstract
    - create_environment_abstract
-   - create_job_abstract
 
 endpoint:  /jobs/project-id/{{@create_project_abstract_Response.data.id}}
 
@@ -23,7 +22,7 @@ assertions:
   - "@Response.data != EMPTY"
 
 cleanup:
-  - delete_job
+  - delete_job__findby_projectid
   - delete_environment
   - delete_project
   - delete_githubacc
