@@ -20,7 +20,7 @@ testCases:
       body: '{
         "name": "proj-{{@Random | 6}}",
         "url": "https://github.com/asriz7777/FX_Testing-Automation",
-        "account": "{{@Ncreate_githubacc_abstract_Response.data.id}}"
+        "account": "{{@Ncreate_githubacc_abstract_Response.data}}"
       }'
 
 
