@@ -14,7 +14,7 @@ init:
 
 endpoint: /envs/{{@create_environment_abstract_Response.data.id}}
 
-method: GET
+method: DELETE
 
 auth: Default
 

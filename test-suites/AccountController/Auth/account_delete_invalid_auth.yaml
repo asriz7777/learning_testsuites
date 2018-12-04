@@ -1,0 +1,25 @@
+name: account_delete_invalid_auth
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /accounts/{{@Response.data.id}}
+
+method: DELETE
+
+auth: None
+
+headers:
+- 'Content-Type: application/json'
+
+assertions:
+- "@StatusCode == 401"
+
+severity: Major
+
+category: UnSecured
+
+tags:
+- V2

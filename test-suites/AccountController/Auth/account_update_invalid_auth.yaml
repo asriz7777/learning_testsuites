@@ -1,0 +1,38 @@
+name: account_update_invalid_auth
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  - create_GitHubacc_abstract
+
+endpoint: /accounts/{{@create_GitHubacc_abstract_Response.data.id}}
+
+method: PUT
+
+auth: NONE
+
+testCases:
+  - id: 1
+    body:
+      '{
+        "id": "{{@create_GitHubacc_abstract_Response.data.id}}",
+        "name": "Fx-Acc-{{@Random | 6}}",
+        "accessKey": "testing accessKey",
+        "secretKey": "testing secretKey"
+     }'
+assertions:
+  - "@StatusCode == 401"
+
+severity: Critical
+
+category: UnSecured
+# Auth required for this endpoint.
+
+tags:
+  - V2
+
+policies:
+  logger: DEBUG

@@ -1,0 +1,28 @@
+name: account_findby_id_invalid_auth
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+   - create_GitHubacc_abstract
+
+endpoint: /accounts/{{@create_GitHubacc_abstract_Response.data.id}}
+
+method: GET
+
+auth: None
+
+assertions:
+  - "@StatusCode == 401"
+
+severity: Critical
+
+category: UnSecured
+
+tags:
+  - V2
+
+policies:
+  logger: DEBUG
