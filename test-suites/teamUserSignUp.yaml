@@ -1,0 +1,114 @@
+---
+# Note - The below property order is not important.
+
+# Test Suite should be unique per project.
+name: teamUserSignUp
+
+# Folder path
+# parent: com.company.project.feature.functional
+
+# Optional - one or more author names
+authors:
+  #- Developer 1
+  #- Developer 2
+
+# Suite type - SUITE or ABSTRACT
+#   ABSTRACT - is not directly executed but is injected into other suite's 'init' & 'cleanup' sections.
+type: SUITE
+
+# Optional - one or more Abstract suites
+init:
+  #- InitAbstractSuite1
+  #- InitAbstractSuite2
+
+# Mandatory - API endpoint path.
+endpoint: /users/team-sign-up
+# Mandatory - Represents the API http method (GET, PUT, POST, DELETE etc)
+method: POST
+
+# Optional - What authentication to use when calling the endpoint. 'Anonymous' means no authentication is used. There is always a 'Default' auth type.
+# For more advance test-cases you can create a new auth type on your env and refer it's name here. e.g. 'Admin' etc.
+auth: None
+
+# Optional Represents request headers
+# Note: These two headers are automatically set ('Content-Type: application/json', 'Accept: application/json')
+headers:
+  - 'Content-Type: application/json'
+
+# One ore more test cases when using POST, PUT, & DELETE methods.
+# Every test-case has unique id and a body (json) properties.
+# Data-Injection in-build keywords (@Random, @RandomAlphabetic, @RandomAlphanumeric, @RandomNumeric, @Date, @RandomUUID, @Vault)
+
+testCases:
+  # valid email
+  - id: 1
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 2
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 5}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 3
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 12}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 4
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 24}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  # valid name
+  - id: 5
+    body: '{"name": "", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 6
+    body: '{"name": "1", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 7
+    body: '{"name": "3", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 8
+    body: '{"name": "first name", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 9
+    body: '{"name": "first1 name2", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 10
+    body: '{"name": "Jr. first name", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 11
+    body: '{"name": "{{@RandomAlphanumeric | 24}}", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  # valid Password
+  - id: 12
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 13
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "{{@RandomAlphanumeric | 24}}", "company": "{{@RandomAlphanumeric | 9}}"}'
+  # valid company
+  - id: 14
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 12}}"}'
+  - id: 15
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 24}}"}'
+
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  #- "@ResponseSize <= 1024"
+  #- "@Response.errors == false || @Response.data.errors == false"
+  #- "@Response.data.name == @Request.name"
+  #- "@Response.data.url == @Request.url"
+  #- "@Response.data.account.id == @Request.account.id" # JSONPath example
+
+
+# Optional - Executes one or more abstract suites per request or per suite.
+cleanup:
+  #- CleanUpAbstract1
+  #- CleanUpAbstract2
+
+# This attribute is used for auto bug triage and filing (Major, Critical, Minor etc)
+severity: Major
+
+# Test category e.g. (Functional, SQL_Injection etc)
+category: Functional
+
+# Jobs can filter test-suites based on the tags.
+tags:
+- V2
+
+# Optional policies
+policies:
+  logger: DEBUG # DEBUG | ERROR
+  #repeatOnFailure: 0
+  #repeat: 0
+  #repeatDelay: 3000
+  #timeoutSeconds: 5
+  # Control if init scripts are executed once for test-case or once per script (Request, Suite)
+  #initExec: Request
+  # Control if cleanup scripts are executed once for test-case or once per script (Request, Suite)
+  #cleanupExec: Request
