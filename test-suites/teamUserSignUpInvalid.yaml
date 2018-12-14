@@ -43,11 +43,11 @@ headers:
 testCases:
   # invalid company
   - id: 1
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "12345678", "company": ""}'
+    body: '{"name": "fn1 ln", "email": "test1@fxlabs.io", "password": "12345678", "company": ""}'
   - id: 2
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "12345678", "company": "1"}'
+    body: '{"name": "fn1 ln", "email": "test2@fxlabs.io", "password": "12345678", "company": "1"}'
   - id: 3
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "12345678", "company": "12"}'
+    body: '{"name": "fn1 ln", "email": "test3@fxlabs.io", "password": "12345678", "company": "12"}'
 
   # invalid email
   - id: 4
@@ -61,21 +61,21 @@ testCases:
 
   # invalid password
   - id: 8
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "", "company": "123"}'
+    body: '{"name": "fn1 ln", "email": "test4@fxlabs.io", "password": "", "company": "123"}'
   - id: 9
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "1", "company": "123"}'
+    body: '{"name": "fn1 ln", "email": "test5@fxlabs.io", "password": "1", "company": "123"}'
   - id: 10
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "12", "company": "123"}'
+    body: '{"name": "fn1 ln", "email": "test6@fxlabs.io", "password": "12", "company": "123"}'
   - id: 11
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "123", "company": "123"}'
+    body: '{"name": "fn1 ln", "email": "test7@fxlabs.io", "password": "123", "company": "123"}'
   - id: 12
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "1234", "company": "123"}'
+    body: '{"name": "fn1 ln", "email": "test8@fxlabs.io", "password": "1234", "company": "123"}'
   - id: 13
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "12345", "company": "123"}'
+    body: '{"name": "fn1 ln", "email": "test9@fxlabs.io", "password": "12345", "company": "123"}'
   - id: 14
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "123456", "company": "123"}'
+    body: '{"name": "fn1 ln", "email": "test12@fxlabs.io", "password": "123456", "company": "123"}'
   - id: 15
-    body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "1234567", "company": "123"}'
+    body: '{"name": "fn1 ln", "email": "test13@fxlabs.io", "password": "1234567", "company": "123"}'
 
 
 # Assertions - One or more.
