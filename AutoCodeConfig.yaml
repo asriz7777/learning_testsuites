@@ -8,8 +8,8 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
-  matches: null
+  inactive: false
+  matches: []
   authors: ""
   abacResources: null
 - type: "sla"
@@ -37,14 +37,14 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
     methods: null
     denyRoles: null
     allowRoles: null
-    pathPatterns: ""
+    pathPatterns: "Get:/api/v1/user-signup/**"
     resourceSamples: null
     queryParams: null
     bodyProperties: null
@@ -56,7 +56,7 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -75,7 +75,7 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -86,7 +86,7 @@ generators:
     resourceSamples: null
     queryParams: null
     bodyProperties: null
-  authors: ""
+  authors: "1.5"
   abacResources: null
 - type: "auth_invalid_sql"
   assertions:
@@ -94,7 +94,7 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -114,10 +114,10 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: "ROLE_ADMIN,ROLE_PM,ROLE_USER"
-    value: "AutoMap"
+    value: "None"
     methods: null
     denyRoles: null
     allowRoles: null
@@ -134,7 +134,7 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -174,7 +174,7 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: "pageSize, page_size, maxResults, max_results"
     value: null
@@ -196,8 +196,8 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
-  matches: null
+  inactive: false
+  matches: []
   authors: ""
   abacResources: null
 - type: "sql_injection_timebound"
@@ -209,7 +209,7 @@ generators:
   database:
     name: "MySQL"
     version: "5.7"
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -231,7 +231,7 @@ generators:
   database:
     name: "MongoDB"
     version: "4.0"
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -253,8 +253,8 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
-  matches: null
+  inactive: false
+  matches: []
   authors: ""
   abacResources: null
 - type: "invalid_datatype"
@@ -264,8 +264,8 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
-  matches: null
+  inactive: false
+  matches: []
   authors: ""
   abacResources: null
 - type: "special_chars "
@@ -277,8 +277,8 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
-  matches: null
+  inactive: false
+  matches: []
   authors: ""
   abacResources: null
 - type: "null_value"
@@ -290,8 +290,8 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
-  matches: null
+  inactive: false
+  matches: []
   authors: ""
   abacResources: null
 - type: "empty_value"
@@ -303,8 +303,8 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
-  matches: null
+  inactive: false
+  matches: []
   authors: ""
   abacResources: null
 - type: "negative_number"
@@ -314,8 +314,8 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
-  matches: null
+  inactive: false
+  matches: []
   authors: ""
   abacResources: null
 - type: "customize"
