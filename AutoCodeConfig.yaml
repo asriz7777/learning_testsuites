@@ -2,35 +2,6 @@
 genPolicy: "None"
 openAPISpec: "http://13.56.210.25/v2/api-docs"
 generators:
-- type: "no_params"
-  assertions:
-  - "@StatusCode == 200"
-  tags: null
-  severity: "Major"
-  database: null
-  inactive: false
-  matches: []
-  authors: ""
-  abacResources: null
-- type: "sla"
-  assertions:
-  - "@StatusCode == 200 AND @ResponseTime < 500"
-  tags: null
-  severity: "Major"
-  database: null
-  inactive: true
-  matches:
-  - name: null
-    value: null
-    methods: null
-    denyRoles: null
-    allowRoles: null
-    pathPatterns: null
-    resourceSamples: null
-    queryParams: null
-    bodyProperties: null
-  authors: ""
-  abacResources: null
 - type: "anonymous_invalid"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
@@ -147,6 +118,86 @@ generators:
     bodyProperties: null
   authors: ""
   abacResources: null
+- type: "abact2"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403 OR @Response.errors == true"
+  tags: null
+  severity: "Major"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+- type: "abact3"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags: null
+  severity: "Major"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+- type: "abact1positive"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Allowed:@StatusCode == 200 AND @Response.errors == false"
+  tags: null
+  severity: "Major"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserA"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+- type: "abact2positive"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Allowed:@StatusCode == 200 AND @Response.errors == false"
+  tags: null
+  severity: "Major"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserA"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
 - type: "abacpositive"
   assertions:
   - "Create:@StatusCode == 200 OR @StatusCode == 201"
@@ -187,19 +238,6 @@ generators:
     bodyProperties: null
   authors: ""
   abacResources: null
-- type: "XSS_Injection"
-  assertions:
-  - "@StatusCode != 200"
-  - "@StatusCode != 401"
-  - "@StatusCode != 404"
-  - "@StatusCode != 500"
-  tags: null
-  severity: "Major"
-  database: null
-  inactive: false
-  matches: []
-  authors: ""
-  abacResources: null
 - type: "sql_injection_timebound"
   assertions:
   - "@ResponseTime < 7000 OR @ResponseTime > 10000"
@@ -210,6 +248,28 @@ generators:
     name: "MySQL"
     version: "5.7"
   inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
+  authors: ""
+  abacResources: null
+- type: "sql_injection2_timebound"
+  assertions:
+  - "@ResponseTime < 7000 OR @ResponseTime > 10000"
+  - "@StatusCode != 404"
+  tags: null
+  severity: "Major"
+  database:
+    name: "MySQL"
+    version: "5.7"
+  inactive: true
   matches:
   - name: null
     value: null
@@ -244,12 +304,29 @@ generators:
     bodyProperties: "id,name"
   authors: ""
   abacResources: null
-- type: "log_Forging"
+- type: "sla"
   assertions:
-  - "@StatusCode != 200"
+  - "@StatusCode == 200 AND @ResponseTime < 500"
+  tags: null
+  severity: "Major"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+- type: "invalid_datatype"
+  assertions:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
-  - "@StatusCode != 500"
   tags: null
   severity: "Major"
   database: null
@@ -257,10 +334,9 @@ generators:
   matches: []
   authors: ""
   abacResources: null
-- type: "invalid_datatype"
+- type: "no_params"
   assertions:
-  - "@StatusCode != 401"
-  - "@StatusCode != 404"
+  - "@StatusCode == 200"
   tags: null
   severity: "Major"
   database: null
